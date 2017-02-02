@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="视之有味" content="祝东的主站视之有味">
+    <title>视之有味</title> 
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+          <a href="#" title="回到首页">
+              <img id="logo" src="images/logo.png" alt="zhudong">
+          </a>
+      </div>
+    </header>
+    <nav class="navbar-inverse"  role="navigation">
+    <!--<nav class="navbar-fixed-top" role="navigation">-->
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href="#">
+                    首页
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          视觉印象
+                          <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a href="html/life.html">生活随拍</a></li>
+                          <li><a href="h">到此一游</a></li>
+                          <li><a href="#">静态之美</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="html/worthRecommending.html">值得推荐</a></li>
+                    <li><a href="html/belovedThing.html">心爱之物</a></li>
+                    <li><a href="html/lifeFeelings.html">生活随感</a></li>
+                    <li><a href="html/resume.html">个人简历</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end #navigation -->
+    <div class="banner">
+        <div class="adaptive">
+            <ul class="img">
+                <li><a href="#"><img src="content/01.jpg"></a></li>
+                <li><a href="#"><img src="content/02.jpg"></a></li>
+                <li><a href="#"><img src="content/03.jpg"></a></li>
+                <li><a href="#"><img src="content/04.jpg"></a></li>
+            </ul>
+        </div>
+        <ul class="num">
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="arrow arrow-lt" id="prev">&lt;</div>
+        <div class="arrow arrow-rt" id="next">&gt;</div>
+    </div>
+    <!-- end #banner -->
+    <div class="cards">
+        <!--<article class="worthrecommending">-->
+            <!--<li><a href="#"><img src="content/11.jpg"></a></li>-->
+            <!--<li><a href="#"><img src="content/12.jpg"></a></li>-->
+        <!--</article>-->
+        <!--<article class="belovedthing">-->
+            <!--<li><a href="#"><img src="content/13.jpg"></a></li>-->
+            <!--<li><a href="#"><img src="content/14.jpg"></a></li>-->
+        <!--</article>-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="line1">
+                        <div class="adaptive">
+                            <a href="#"><img src="content/11.jpg"></a>
+                        </div>
+                    </div>
+                    <div class="line2">
+                        <div class="adaptive">
+                            <a href="#"><img src="content/12.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="line1">
+                        <div class="adaptive">
+                            <a href="#"><img src="content/13.jpg"></a>
+                        </div>
+                    </div>
+                    <div class="line2">
+                        <div class="adaptive">
+                            <a href="#"><img src="content/14.jpg"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end #cards -->
+<!--<div id="main-content">
+      <div class="container">
+        <div class="thumbnails">
+          <div class="row">
+            <article class="col-sm-6">
+              <div class="media-box">
+                <img src="content/1.jpg" alt="Photography">
+              </div>
+              <div class="content-box">
+                <h1>窗外四季</h1>
+                <footer class="content-meta">
+                  <span>
+                    <a href="#" rel="tooltip" data-placement="left" data-original-title="祝东">
+                      <img class="img-circle" src="content/avatar.jpg" alt="">
+                    </a>
+                  </span> 
+                  <time>2016-01-22</time>
+                  <span>生活随拍</span>
+                </footer>
+              </div>
+            </article>
+            <article class="col-sm-6">
+              <div class="media-box">
+                <img src="content/2.jpg" alt="婚礼图片">
+              </div>
+              <div class="content-box">
+                <h1>昔日中关村</h1>
+                <footer class="content-meta">
+                  <span>
+                    <a href="#" rel="tooltip" data-placement="left" data-original-title="">
+                      <img class="img-circle" src="content/avatar.jpg" alt="">
+                    </a>
+                  </span> 
+                  <time>2016-01-12</time>
+                  <span>生活随拍</span>
+                </footer>
+              </div>
+            </article>
+          </div>
+          <article class="span6">
+            <div class="media-box">
+              <img src="content/3.jpg" alt="婚礼图片">
+            </div>
+            <div class="content-box">
+              <h1>火车上</h1>
+              <footer class="content-meta">
+                <span>
+                  <a href="#" rel="tooltip" data-placement="left" data-original-title="">
+                    <img class="img-circle" src="content/avatar.jpg" alt="">
+                  </a>
+                </span> 
+                <time>2016-01-12</time>
+                <span>生活随拍</span>
+              </footer>
+            </div>
+          </article>
+          <article class="span6">
+            <div class="media-box">
+              <img src="content/4.jpg" alt="婚礼图片">
+            </div>
+            <div class="content-box">
+              <h1>火车上</h1>
+              <footer class="content-meta">
+                <span>
+                  <a href="#" rel="tooltip" data-placement="left" data-original-title="王皓">
+                    <img class="img-circle" src="content/avatar.jpg" alt="">
+                  </a>
+                </span> 
+                <time>2016-01-12</time>
+                <span>生活随拍</span>
+                <div class="btn-group pull-right">
+                  <a href="#" class="btn btn-mini" rel="popover" data-original-title="摘要" data-content="一个温馨可爱的农场婚礼" data-placement="top" data-trigger="hover"><i class="icon-info-sign"></i></a>
+                  <a href="#" class="btn btn-mini"><i class="icon-comment"></i></a>
+                </div>
+              </footer>
+            </div>
+          </article>
+          <article class="span6">
+            <div class="media-box">
+              <img src="content/5.jpg" alt="婚礼图片">
+            </div>
+            <div class="content-box">
+              <h1>站台上</h1>
+              <footer class="content-meta">
+                <span>
+                  <a href="#" rel="tooltip" data-placement="left" data-original-title="">
+                    <img class="img-circle" src="content/avatar.jpg" alt="">
+                  </a>
+                </span> 
+                <time>2016-01-12</time>
+                <span>生活随拍</span>
+              </footer>
+            </div>
+          </article>
+          <article class="span6">
+            <div class="media-box">
+              <img src="content/6.jpg" alt="婚礼图片">
+            </div>
+            <div class="content-box">
+              <h1>湿地边</h1>
+              <footer class="content-meta">
+                <span>
+                  <a href="#" rel="tooltip" data-placement="left" data-original-title="">
+                    <img class="img-circle" src="content/avatar.jpg" alt="">
+                  </a>
+                </span> 
+                <time>2016-01-12</time>
+                <span>生活随拍</span>
+              </footer>
+            </div>
+          </article>
+        </div>
+        <ul class="pager">
+          <li class="previous">
+            <a href="#">&larr; Older</a>
+          </li>
+          <li class="next">
+            <a href="#">Newer &rarr;</a>
+          </li>
+        </ul>
+        <ul class="breadcrumb">
+          <li><a href="#">Home</a> <span class="divider">/</span></li>
+          <li><a href="#">Library</a> <span class="divider">/</span></li>
+          <li class="active">Data</li>
+        </ul>
+      </div>
+    </div> --><!-- end #main-content -->
+    <div id="line"></div>
+    <footer class="footer">
+      <div class="container">
+        &copy; 2016 视之有味
+      </div>
+    </footer><!-- end #footer -->
+    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <!--<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="js/sof.js"></script>
+  </body>
+</html>
