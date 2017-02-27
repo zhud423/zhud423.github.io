@@ -15,14 +15,13 @@ body{
  */
 .navbar-inverse{
     /*border: 2px solid crimson;*/
-    position: relative;
-    z-index: 3;
 }
 
 .navbar-header{
-    /*border: 2px solid #876;*/
+    /*border: 2px solid #276;*/
 
 }
+
 
 /*.navbar .nav > .active > a,*/
 /*.navbar .nav > .active > a:hover,*/
@@ -36,14 +35,27 @@ body{
   /*border-bottom: 3px solid #cccccc;*/
 /*}*/
 
-.collapse{
-    z-index: 3;
+#example-navbar-collapse{
+    /*border: 2px solid #f0ad4e;*/
+
 }
 
-.dropdown-menu{
+#example-navbar-collapse .nav{
+    /*border: 2px solid #976;*/
+
+}
+
+#example-navbar-collapse .dropdown{
     /*border: 2px solid #176;*/
-    /*color: #f0ad4e;此样式不起作用*/
-    z-index: 5;
+
+}
+
+
+
+#example-navbar-collapse .dropdown-menu {
+    /*border: 2px solid #176;*/
+    /*display: block;     跟隐藏效果冲突*/
+    /*color: #f0ad4e;    此样式不起作用*/
 }
 
 .dropdown-menu #abg{
@@ -62,12 +74,12 @@ body{
 }
 
 .banner {
-    position:relative;
     width: 100%;
     height: 600px;
+    position: relative;
     overflow: hidden;
-    z-index: 1;
     /*border:2px solid #f0a;*/
+    margin-top: -22px;
 }
 
 .banner .adaptive {
@@ -94,18 +106,19 @@ body{
 }
 
 .banner .num {
+    /*border:2px solid #296;*/
     position: absolute;
-    left: 35%;
     top:90%;
+    left: 30%;
     z-index: 2;
     height: 10px;
-    width: 80%;
+    width: 40%;
 }
 
 .banner .num li {
     float: left;
     margin-right: 5px;
-    width: 100px;
+    width: 20%;
     height: 5px;
     /*border: 1px solid #1aa;*/
     /*border-radius: 50%;*/
@@ -207,7 +220,7 @@ body{
     height: 520px;
 }
 
-.col-md-7 .line1 .adaptive{
+.worthRecommending .line1 .adaptive{
     position:absolute;
     width: 1000px;
     left: 50%;
@@ -215,7 +228,7 @@ body{
     /*height: 500px;从父级向子级逐级定义,先定子级无效*/
 }
 
-.col-md-7 .line2 {
+.worthRecommending .line2 {
     /*border:2px solid #459;*/
     border-right: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -225,19 +238,19 @@ body{
     height: 518px;
 }
 
-.col-md-7 .line2 .adaptive{
+.worthRecommending .line2 .adaptive{
     position:absolute;
     width: 1000px;
     left: 50%;
     margin-left: -550px;
 }
 
-.cards .col-md-5{
+.cards .belovedThing{
     /*border:2px solid #d40;*/
 
 }
 
-.col-md-5 .line1 {
+.belovedThing .line1 {
     /*border:2px solid #559;*/
     border-top: 2px solid #ffffff;
     border-bottom: 2px solid #ffffff;
@@ -247,14 +260,14 @@ body{
     height: 520px;
 }
 
-.col-md-5 .line1 .adaptive{
+.belovedThing .line1 .adaptive{
     position:absolute;
     width: 1000px;
     right: 50%;
     margin-right: -500px;
 }
 
-.col-md-5 .line2 {
+.belovedThing .line2 {
     /*border:2px solid #959;*/
     border-bottom: 2px solid #ffffff;
     margin: 0 -15px;
@@ -263,7 +276,7 @@ body{
     height: 518px;
 }
 
-.col-md-5 .line2 .adaptive{
+.belovedThing .line2 .adaptive{
     position:absolute;
     width: 1000px;
     right: 50%;
@@ -274,25 +287,69 @@ body{
  * footler style
  */
 #line{
-  height: 2px;
-  width: 89%;
-  margin:0 auto;
-  border: 1px groove #fff;
+  width: 100%;
+    height: 4px;
+  /*margin:0 auto;*/
+  border: 2px groove #fff;
 }
 .footer {
     /*border: 2px solid #f0ad4e;*/
   background-color: #f0f0f0;
 /*background: url(../images/emerald-footer.png) repeat-x #097a5f;*/
-    padding: 20px 0 10px 30px;
+    padding: 20px 0 10px 20px;
   color: #666;
   text-shadow: 1px 1px 1px #999;
 }
 
 
 
-
 /*
  * 照片库主内容的样式
+ */
+#main-gallery{
+
+}
+
+/*#main-gallery .container{
+    width: 100%;
+    position: relative;
+    !*border: 2px solid #f0ad4e;*!
+    padding: 0;
+    -webkit-column-width:305px ;
+    -webkit-column-gap:0 ;    !*因为默认样式的间距不为0,只有让间距为0,2个相框才能紧挨着*!
+}*/
+
+#main-gallery .container{
+    position: relative;
+    /*border: 2px solid #f0ad4e;*/
+    width: 100%;
+    height: 10000px;
+    margin: 0;
+    padding: 0 ;
+
+}
+
+#main-gallery .box{
+    float: left;
+    padding: 0 2px;
+}
+
+#main-gallery .img{
+    margin: 0 0 5px 0;  /*没有此margin,下阴影会覆盖下面的图片*/
+    padding: 5px;
+    box-shadow: 5px 5px 5px #666;
+
+
+}
+
+#main-gallery img{
+    /*border: 1px solid #f0ad4e;*/
+    width: 305px;
+    height: auto;
+}
+
+/*
+ * 推荐/喜爱库主内容的样式
  */
 .content-box{
   border: 1px solid #d7d7d7;
@@ -319,12 +376,28 @@ body{
 }
 
 #main-content{
-  margin: 20px 0;
+      margin: 20px 0;
+}
+
+#main-content .container{
+    /*border:2px solid #f0ad4e;*/
+    /*width: 100%;*/
 }
 
 .media-box{
   height: 360px;
   overflow: hidden;
+    /*border:2px solid #f0ad4e;*/
+
+}
+.media-box img{
+    height: 100%;
+    width: 100%;
+}
+
+.library{
+    margin: 0 auto;
+    width:90%;
 }
 
 .pager a{
@@ -369,11 +442,29 @@ body{
     margin-top: 10px;
 }
 
+.icon-line{
+    width: auto;
+    margin-top:100px;
+    border:  1px dashed #999;
+
+}
+
+.icon-bow{
+    display: block;
+    width: 52px;
+    height: 21px;
+    background: #f0f0f0 url(../images/bow.png) no-repeat 50% 50%;
+    margin: 0 auto;
+    margin-top: -11px;
+    padding: 0 10px;
+}
+
 /*
  * 右边栏的样式
  */
 .title-line{
   border-bottom: 2px solid #aaa;
+    margin-right: -10px;
   margin-bottom: 30px;
 }
 
