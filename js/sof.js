@@ -22,28 +22,35 @@ $(function(){
     $(".num li").eq(i).addClass("active").siblings().removeClass("active");
     $(".img li").eq(i).stop().show().siblings().stop().hide();
     //$(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
+    //method 1
     //$(".banner").hover(function(){
     //  clearInterval(t);
     //}, function(){
     //  t=setInterval(move,2000)
     //});
-    $(".banner").mouseover(function(){
+
+    //method 2
+    //$(".banner").mouseover(function(){
+    //  clearInterval(t);
+    //});
+    //$("#banner").mouseout(function(){
+    //  t=setInterval(move,2000);
+    //});
+
+    //method 3
+    $(".banner .img").mouseenter(function(){
       clearInterval(t);
     });
-    $(".banner .img").mouseout(function(){
-      t=setInterval(move,2000);
-    });
-   /* $(".banner").mouseenter(function(){
+    $(".banner .num").mouseenter(function(){
       clearInterval(t);
     });
-    $(".banner .img").mouseleave(function(){
+    $(".banner").mouseleave(function(){
       t=setInterval(move,2000);
-    });*/
+    });
   }
 
-  //前后箭头
-  //向前移动函数
-  function movep(){
+  //前后箭头移动
+  function movep(){         //向前移动函数
     i--;
     if(i==-1){
       i=3;
@@ -51,12 +58,11 @@ $(function(){
     $(".num li").eq(i).addClass("active").siblings().removeClass("active");
     $(".img li").eq(i).show().siblings().hide();
   }
-
   $("#prev").click(function(){
     movep();
   });
   $("#next").click(function(){
-    move();//用核心函数就行
+    move();                //向后移动函数即核心函数
   });
 });
 
