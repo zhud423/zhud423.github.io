@@ -68,6 +68,37 @@ $(function(){
 
 
 
+//监听滚动,固定导航栏在顶部
+window.onscroll=function(){
+  if (judge()){
+    //alert("ok");
+    var gn=document.getElementById("navbar");
+    //变量在if定义,在else不能直接用,也要定义
+    //3种不同修改style的写法
+     gn.style.cssText="position:fixed; top:0; width:100%; z-index:3;";
+
+    //gn.setAttribute("style","position:fixed; top:0; width:100%; z-index:3;");
+
+    //gn.style.position="fixed";
+    //gn.style.top="0";
+    //gn.style.width="100%";
+  }else{
+    var gn=document.getElementById("navbar");
+    gn.style.position="";
+    gn.style.top="";
+  }
+};
+function judge(){
+  var st=document.documentElement.scrollTop     //scroll top
+      ||document.body.scrollTop
+      ||window.pageYOffset
+      ||window.scrollY;
+  if (st>93){
+    return true;
+  }
+}
+
+
 
 
 

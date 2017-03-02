@@ -13,8 +13,10 @@ body{
 /* 
  * navbar style
  */
-.navbar-inverse{
+.navbar{
     /*border: 2px solid crimson;*/
+    /*position: fixed;*/
+    /*top: 0;*/
 }
 
 .navbar-header{
@@ -307,7 +309,8 @@ body{
  * 照片库主内容的样式
  */
 #main-gallery{
-
+    /*border: 2px solid #f0ad4e;*/
+    margin: -20px 0 0 0;
 }
 
 /*#main-gallery .container{

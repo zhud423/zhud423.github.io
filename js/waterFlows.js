@@ -2,20 +2,26 @@
 
 window.onload=function(){
     sl("main-gallery-container","box");
+};
 
-    //json字符串模拟网络数据
-    var imgData={"data":[
-        //{"src":"016.jpg"},{"src":"017.jpg"},{"src":"018.jpg"},{"src":"019.jpg"},{"src":"020.jpg"},
-        //{"src":"021.jpg"},{"src":"022.jpg"},{"src":"023.jpg"},{"src":"024.jpg"},{"src":"025.jpg"},
-        {"src":"026.jpg"},{"src":"027.jpg"},{"src":"028.jpg"},{"src":"029.jpg"},{"src":"030.jpg"}
+//json字符串模拟网络数据
+var imgData={"data":[
+    {"src":"016.jpg"},{"src":"017.jpg"},{"src":"018.jpg"},{"src":"019.jpg"},{"src":"020.jpg"}
+    ,{"src":"021.jpg"},{"src":"022.jpg"},{"src":"023.jpg"},{"src":"024.jpg"},{"src":"025.jpg"}
+    ,{"src":"026.jpg"},{"src":"027.jpg"},{"src":"028.jpg"},{"src":"029.jpg"},{"src":"030.jpg"}
+]};
 
-    ]};
-    //必须通过onscroll监听滚动条,无监听直接定义,输出始终为0
-    window.onscroll=function(){
-        if (judge()){
-            //alert("hello");
+//必须通过onscroll监听滚动条,无监听直接定义,scrolltop输出始终为0
+window.onscroll=function(){
+    if (judgeNavbar()){
+        var gn=document.getElementById("navbar");
+        //变量在if定义,在else不能直接用,也要定义
+        //3种不同修改style的写法
+        gn.style.cssText="position:fixed; top:0; width:100%; z-index:3;";
+
+        if (judge()){  //嵌套,在判断scrolltop>93的基础上再判断scrolltop>加载需要值
             var gp=document.getElementById("main-gallery-container");
-            for (var i=0;i<imgData.data.length;i++){
+            for (var i=0;i<imgData.data.length;i++){      //要不断加载,所以循环
                 var cd=document.createElement("div");
                 cd.className="box";
                 gp.appendChild(cd);
@@ -26,14 +32,21 @@ window.onload=function(){
                 var ca=document.createElement("a");
                 ca.href="articles/article.html";
                 cd1.appendChild(ca);
-                var ci=document.createComment("img");
+                var ci=document.createElement("img");
                 ci.src="../content/life/"+imgData.data[i].src; //此处路径写法注意
                 ca.appendChild(ci);
             }
-            sl();
+            //上一步只是加载数据,本步实现定位
+            // 注意:sl()参数必须传入,否则失效
+            sl("main-gallery-container","box");
         }
-    };
+    }else {
+        var gn=document.getElementById("navbar");
+        gn.style.position="";
+        gn.style.top="";
+    }
 };
+
 
 function judge(){
     var st=document.documentElement.scrollTop     //scroll top
@@ -53,19 +66,31 @@ function judge(){
 //    var st1=$(window).scrollTop();
 //var ch=document.body.clientHeight||document.documentElement.clientHeight;
 //var lh=gn[gn.length-1].offsetTop;
-    if (lst<st+ch){
+    if (st>lst-ch){
         return true;
     }
 }
 
 
+function judgeNavbar(){
+    var st=document.documentElement.scrollTop     //scroll top
+        ||document.body.scrollTop
+        ||window.pageYOffset
+        ||window.scrollY;
+    if (st>93){
+        return true;
+    }
+}
+
 function sl(parent,son){                 //son location函数
     var gp=document.getElementById(parent);
     var gs=gnc(gp,son);
-    var sw=gs[0].offsetWidth;
-    //console.log(sw);
-    var c=Math.floor(document.body.clientWidth/sw);  //
-    //gp.style.cssText="width:"+sw*c+"px;margin:0 auto;";//固定化后跟bootstrap的自适应冲突
+    //var sw=gs[0].offsetWidth;         //此写法显示offsetwidth未定义
+    var sw=document.getElementById("box1").offsetWidth;
+    //var ww=document.body.clientWidth; 此法得到的是网页内容宽度,大于窗口宽度,内容横向溢出,有横向滚动条
+    var ww=window.innerWidth;
+    var c=Math.floor(ww/sw);  //取整
+    //gp.style.cssText="width:"+sw*c+"px;margin:0 auto;";//固定居中化后跟bootstrap的自适应冲突
     var sh=[];
     for (var i=0;i<gs.length;i++) {
         if(i<c){
@@ -101,10 +126,10 @@ function gnc(parent,son) {                  //get need child此方法用于获�
     var allson = document.getElementsByTagName("*");
     for (var i = 0; i < allson.length; i++) {
         if (allson[i].className == son) {
-            sonarr.push(allson[i]); //数组向其末尾进行追加
+            sonarr.push(allson[i]); //向数组末尾添加元素
         }
     }
-    return sonarr;
+    return sonarr;                   //让gnc()=sonarr[]
 }
 
 
