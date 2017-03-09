@@ -542,5 +542,48 @@ body{
 
 
 
+/*
+ * resume顶栏的样式
+ */
+/*#bottom{*/
+    /*background: #009571 url(../images/emerald.png);*/
+    /*color: #fff;*/
+    /*text-shadow: 1px 1px 1px #048465;*/
+/*}*/
+
+/*.semicircle{*/
+    /*background: url(../images/semicircle.png) repeat-x;*/
+    /*padding: 20px 0;*/
+/*}*/
+
+/*#bottom h3{*/
+    /*font-size: 18px;*/
+    /*color: #075442;*/
+    /*text-shadow: 1px 1px 1px #03a67f;*/
+    /*background: url(../images/dashed-h.png) repeat-x 0 50%;*/
+/*}*/
+
+/*#bottom h3 span{*/
+    /*background: url(../images/emerald.png);*/
+    /*padding-right: 10px;*/
+/*}*/
+
+/*.dashed-v{*/
+    /*background: url(../images/dashed-v.png) repeat-y 100% 0;*/
+    /*padding: 0 20px 20px 0;*/
+/*}*/
+
+#home{
+    font-size: 24px;
+}
+
+#github{
+    font-size: 24px;
+}
+
+#wechat{
+    text-align: center;
+}
+
 
 

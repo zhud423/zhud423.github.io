@@ -13,32 +13,36 @@ var imgData={"data":[
 
 //必须通过onscroll监听滚动条,无监听直接定义,scrolltop输出始终为0
 window.onscroll=function(){
+    //先判断navbar固定到顶部
     if (judgeNavbar()){
         var gn=document.getElementById("navbar");
         //变量在if定义,在else不能直接用,也要定义
         //3种不同修改style的写法
         gn.style.cssText="position:fixed; top:0; width:100%; z-index:3;";
-
-        if (judge()){  //嵌套,在判断scrolltop>93的基础上再判断scrolltop>加载需要值
+        //再判断是否加载内容
+        if (judge()){  //嵌套,scrolltop>93的基础上再判断scrolltop>加载需要值
             var gp=document.getElementById("main-gallery-container");
-            for (var i=0;i<imgData.data.length;i++){      //要不断加载,所以循环
-                var cd=document.createElement("div");
-                cd.className="box";
-                gp.appendChild(cd);
-                //alert(cd.className);
-                var cd1=document.createElement("div");
-                cd1.className="img";
-                cd.appendChild(cd1);
-                var ca=document.createElement("a");
-                ca.href="articles/article.html";
-                cd1.appendChild(ca);
-                var ci=document.createElement("img");
-                ci.src="../content/life/"+imgData.data[i].src; //此处路径写法注意
-                ca.appendChild(ci);
+            var t=setTimeout(ce,600);
+            function ce(){
+                for (var i=0;i<imgData.data.length;i++){      //要不断加载,所以循环
+                    var cd=document.createElement("div");
+                    cd.className="box";
+                    gp.appendChild(cd);
+                    //alert(cd.className);
+                    var cd1=document.createElement("div");
+                    cd1.className="img";
+                    cd.appendChild(cd1);
+                    var ca=document.createElement("a");
+                    ca.href="javascript:void (0)";
+                    cd1.appendChild(ca);
+                    var ci=document.createElement("img");
+                    ci.src="../content/life/"+imgData.data[i].src; //此处路径写法注意
+                    ca.appendChild(ci);
+                }
+                //上一步只是加载数据,本步实现定位
+                // 注意:sl()参数必须传入,否则失效
+                sl("main-gallery-container","box");
             }
-            //上一步只是加载数据,本步实现定位
-            // 注意:sl()参数必须传入,否则失效
-            sl("main-gallery-container","box");
         }
     }else {
         var gn=document.getElementById("navbar");
@@ -132,6 +136,9 @@ function gnc(parent,son) {                  //get need child此方法用于获�
     return sonarr;                   //让gnc()=sonarr[]
 }
 
+
+
+//lightBox效果
 var gp=document.getElementById("main-gallery");
 gp.addEventListener("click",turnOn);
 function turnOn(){
