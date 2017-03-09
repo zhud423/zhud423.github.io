@@ -1,5 +1,5 @@
-$(function(){
-  //手动轮播
+
+//手动轮播
   $(".num li").mouseover(function(){
     $(this).addClass("active").siblings().removeClass("active");
     var index=$(this).index();
@@ -64,11 +64,40 @@ $(function(){
   $("#next").click(function(){
     move();                //向后移动函数即核心函数
   });
-});
 
 
 
-//监听滚动,固定导航栏在顶部
+//手机端让banner等比例缩小
+var t2=setInterval(ccw,5000);
+var cw=document.body.clientWidth;
+var s=cw/1280;
+function ccw() {
+  if (cw < 768) {
+    clearInterval(t);
+    //changeBanner();
+  } else {
+
+  }
+}
+//  function changeBanner(){
+//    //var gb=document.getElementById("banner");
+//    //$("#banner").scale(s,s);   不能用scale,只有canvas标签才有scale属性
+//    var gimg=document.getElementsByTagName("img");
+//    for(i=1;i<5;i++){
+//      //gimg[i].style.cssText="height:300px;width:"+cw+"px";
+//      gimg[i].style.width=cw+"px";
+//      //console.log(gimg[5]);
+//      //gimg[i].style.cssText="height:300px;width:"
+//    }
+//  }
+//}
+
+
+
+
+
+
+///监听滚动,固定导航栏在顶部
 window.onscroll=function(){
   if (judge()){
     //alert("ok");
@@ -88,16 +117,15 @@ window.onscroll=function(){
     gn.style.top="";
   }
 };
-function judge(){
-  var st=document.documentElement.scrollTop     //scroll top
-      ||document.body.scrollTop
-      ||window.pageYOffset
-      ||window.scrollY;
-  if (st>93){
+function judge() {
+  var st = document.documentElement.scrollTop     //scroll top
+      || document.body.scrollTop
+      || window.pageYOffset
+      || window.scrollY;
+  if (st > 93) {
     return true;
   }
 }
-
 
 
 
