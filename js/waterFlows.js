@@ -132,9 +132,25 @@ function gnc(parent,son) {                  //get need child此方法用于获�
     return sonarr;                   //让gnc()=sonarr[]
 }
 
+var gp=document.getElementById("main-gallery");
+gp.addEventListener("click",turnOn);
+function turnOn(){
+    var ts=event.target.src;
+    var ns=ts.slice(-6,-4);         //与substring的区别,注意起始位置是相邻两个,其实只包含一个元素
+    //alert(ns);
+    var cs="../content/life/0"+ns+".jpg";
+    document.getElementById("imgx").src=cs;
+    document.getElementById("light").style.display="block";
+    document.getElementById("fade").style.display="block";
+}
 
 
-
+var gf=document.getElementById("fade");
+gf.addEventListener("click",turnOff);
+function turnOff(){
+    document.getElementById("light").style.display="none";
+    document.getElementById("fade").style.display="none";
+}
 
 
 

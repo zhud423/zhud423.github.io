@@ -311,6 +311,7 @@ body{
 #main-gallery{
     /*border: 2px solid #f0ad4e;*/
     margin: -20px 0 0 0;
+    height: 10000px;
 }
 
 /*#main-gallery .container{
@@ -323,18 +324,53 @@ body{
 }*/
 
 #main-gallery .container{
-    position: relative;
+    position: relative;     /*作为box的父级只能相对,否则box会重叠*/
     /*border: 2px solid #f0ad4e;*/
     width: 100%;
-    height: 10000px;
+    height: 100%;
     margin: 0;
     padding: 0 ;
-
 }
+
 
 #main-gallery .box{
     float: left;
     padding: 0 2px;
+}
+
+#main-gallery .overlay{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index:1;
+    -moz-opacity: 0.8;
+    opacity:0.80;
+    filter: alpha(opacity=80);
+}
+
+#main-gallery .lightbox{
+    display: none;
+    position: fixed;
+    top: 60%;              /*这才是正经实现办法*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*left: 0;            !*此法能实现视觉效果的居中,而实质是margin扩大并隐藏,所以会占据整个页面的宽度*!*/
+    /*right: 0;*/
+    /*margin: 0 auto;*/   /*此法仅限在文档流(static/relative)中使用,用此法也不能实现,因为fixed使元素脱离了文档流*/
+    z-index:6;
+    color: #f0f0f0;
+    font-size: large;
+    text-align: center;
+}
+
+#main-gallery .lightbox img{
+    width: auto;
+    height: auto;
+    border: 5px solid #ffffff;
 }
 
 #main-gallery .img{
