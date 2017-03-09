@@ -94,7 +94,7 @@ function sl(parent,son){                 //son location函数
     //var ww=document.body.clientWidth; //此法得到的是网页内容宽度,大于窗口宽度,内容横向溢出,有横向滚动条
     var ww=window.innerWidth;
     var c=Math.floor(ww/sw);  //取整
-    //gp.style.cssText="width:"+sw*c+"px;margin:0 auto;";//固定居中化后跟bootstrap的自适应冲突
+    gp.style.cssText="width:"+sw*c+"px;margin:0 auto;";//固定居中化后跟bootstrap的自适应冲突
     var sh=[];
     for (var i=0;i<gs.length;i++) {
         if(i<c){
