@@ -91,13 +91,13 @@ function sl(parent,son){                 //son location函数
     var gs=gnc(gp,son);
     //var sw=gs[0].offsetWidth;         //此写法显示offsetwidth未定义
     var sw=document.getElementById("box1").offsetWidth;
-    var ww=document.body.clientWidth; //此法得到的是网页内容宽度,大于窗口宽度,内容横向溢出,有横向滚动条
-    //var ww=window.innerWidth;
+    //var ww=document.body.clientWidth; //此法得到的是网页内容宽度,大于窗口宽度,内容横向溢出,有横向滚动条
+    var ww=window.innerWidth;
     var c=Math.floor(ww/sw);  //取整
     //gp.style.cssText="width:"+sw*c+"px;margin:0 auto;";//固定居中化后跟bootstrap的自适应冲突
     var sh=[];
     for (var i=0;i<gs.length;i++) {
-        if(i<=c){
+        if(i<c){
             sh[i] = gs[i].offsetHeight;
             //var minsh=Math.min.apply(null,sh);
             // 此句放在if里只能把超出c的第一个son元素放在需要位置,对后面的元素就失效了,此句必须放在else中
