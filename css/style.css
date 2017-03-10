@@ -219,15 +219,14 @@ body{
     margin: 0 -15px;
     position: relative;
     overflow: hidden;
-    height: 520px;
+    height: 320px;
 }
 
 .worthRecommending .line1 .adaptive{
     position:absolute;
-    width: 1000px;
     left: 50%;
-    margin-left: -550px;
-    /*height: 500px;从父级向子级逐级定义,先定子级无效*/
+    top:50%;
+    transform: translate(-50%, -50%);
 }
 
 .worthRecommending .line2 {
@@ -237,14 +236,14 @@ body{
     margin: 0 -15px;
     position: relative;
     overflow: hidden;
-    height: 518px;
+    height: 318px;
 }
 
 .worthRecommending .line2 .adaptive{
     position:absolute;
-    width: 1000px;
     left: 50%;
-    margin-left: -550px;
+    top:50%;
+    transform: translate(-50%, -50%);
 }
 
 .cards .belovedThing{
@@ -259,14 +258,14 @@ body{
     margin: 0 -15px;
     position: relative;
     overflow: hidden;
-    height: 520px;
+    height: 320px;
 }
 
 .belovedThing .line1 .adaptive{
     position:absolute;
-    width: 1000px;
     right: 50%;
-    margin-right: -500px;
+    top:50%;
+    transform: translate(50%, -50%);
 }
 
 .belovedThing .line2 {
@@ -275,14 +274,17 @@ body{
     margin: 0 -15px;
     position: relative;
     overflow: hidden;
-    height: 518px;
+    height: 318px;
 }
 
 .belovedThing .line2 .adaptive{
     position:absolute;
-    width: 1000px;
     right: 50%;
-    margin-right: -500px;
+    top:50%;
+    margin-right: -384px;
+    margin-top: -159px;
+    /*transform: translate(50%, -50%);*/
+
 }
 
 /*
@@ -312,6 +314,7 @@ body{
     /*border: 2px solid #f0ad4e;*/
     margin: -20px 0 0 0;
     height: 10000px;
+    width: 100%;
 }
 
 /*#main-gallery .container{
@@ -355,7 +358,7 @@ body{
 #main-gallery .lightbox{
     display: none;
     position: fixed;
-    top: 60%;              /*这才是正经实现办法*/
+    top: 55%;              /*这才是正经实现办法*/
     left: 50%;
     transform: translate(-50%, -50%);
     /*left: 0;            !*此法能实现视觉效果的居中,而实质是margin扩大并隐藏,所以会占据整个页面的宽度*!*/
@@ -365,18 +368,21 @@ body{
     color: #f0f0f0;
     font-size: large;
     text-align: center;
+
 }
 
 #main-gallery .lightbox img{
     width: auto;
     height: auto;
     border: 5px solid #ffffff;
+    box-shadow: 20px 20px 20px #999;
+
 }
 
 #main-gallery .img{
     margin: 0 0 5px 0;  /*没有此margin,下阴影会覆盖下面的图片*/
     padding: 5px;
-    box-shadow: 5px 5px 5px #666;
+    /*box-shadow: 5px 5px 5px #666;*/
 
 
 }

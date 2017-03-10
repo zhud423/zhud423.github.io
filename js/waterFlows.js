@@ -4,6 +4,61 @@ window.onload=function(){
     sl("main-gallery-container","box");
 };
 
+function sl(parent,son){                 //son location函数
+
+    //获取每行box个数c,为什么把他们放到全局变量不行?
+    //var sw=gs[0].offsetWidth;         //此写法显示offsetwidth未定义
+    var sw=document.getElementById("box1").offsetWidth;
+    //var ww=document.body.clientWidth; //此法得到的是网页内容宽度,大于窗口宽度,内容横向溢出,有横向滚动条
+    var ww=window.innerWidth;
+    var c=Math.floor(ww/sw);  //取整
+
+
+    var gp=document.getElementById(parent);
+    //gp.style.cssText="";    想让gp宽度=sw*c,并居中显示,但会影响灯箱效果,所以放弃
+    var gs=gnc(gp,son);
+    var sh=[];
+    for (var i=0;i<gs.length;i++) {
+        if(i<c){
+            sh[i] = gs[i].offsetHeight;
+            //var minsh=Math.min.apply(null,sh);
+            // 此句放在if里只能把超出c的第一个son元素放在需要位置,对后面的元素就失效了,此句必须放在else中
+        }else {
+            //用math函数找到最小值
+            var minsh=Math.min.apply(null,sh);//使用Math.min(),()中为数值,不能直接跟数组,需用apply来调用数组中的数值
+
+            //遍历得到最小值对应的序号
+            function gminshsl(sh,minsh){      //get min sh son location
+                for(var i in sh){
+                    if (sh[i]==minsh){
+                        return i;
+                    }
+                }
+            }
+
+            var mshl=gminshsl(sh,minsh);         //min son height location,索引值[0] [1] [2],非数值
+            gs[i].style.position="absolute";
+            gs[i].style.top=minsh+"px";
+            gs[i].style.left=gs[mshl].offsetLeft+"px";
+            //gs[i].style.left=sw*mshl+"px";
+            sh[mshl]=sh[mshl]+gs[i].offsetHeight;
+            //sh[mshl]=sh[mshl]+sh[i];//此处不能直接用sh[]，他是针对i<c情况
+        }
+    }
+}
+
+function gnc(parent,son) {                  //get need child此方法用于获取需要的子元素
+    var sonarr = [];
+    var allson = document.getElementsByTagName("*");
+    for (var i = 0; i < allson.length; i++) {
+        if (allson[i].className == son) {
+            sonarr.push(allson[i]); //向数组末尾添加元素
+        }
+    }
+    return sonarr;                   //让gnc()=sonarr[]
+}
+
+
 //json字符串模拟网络数据
 var imgData={"data":[
     {"src":"016.jpg"},{"src":"017.jpg"},{"src":"018.jpg"},{"src":"019.jpg"},{"src":"020.jpg"}
@@ -86,55 +141,8 @@ function judgeNavbar(){
     }
 }
 
-function sl(parent,son){                 //son location函数
-    var gp=document.getElementById(parent);
-    var gs=gnc(gp,son);
-    //var sw=gs[0].offsetWidth;         //此写法显示offsetwidth未定义
-    var sw=document.getElementById("box1").offsetWidth;
-    //var ww=document.body.clientWidth; //此法得到的是网页内容宽度,大于窗口宽度,内容横向溢出,有横向滚动条
-    var ww=window.innerWidth;
-    var c=Math.floor(ww/sw);  //取整
-    gp.style.cssText="width:"+sw*c+"px;margin:0 auto;";//固定居中化后跟bootstrap的自适应冲突
-    var sh=[];
-    for (var i=0;i<gs.length;i++) {
-        if(i<c){
-            sh[i] = gs[i].offsetHeight;
-            //var minsh=Math.min.apply(null,sh);
-            // 此句放在if里只能把超出c的第一个son元素放在需要位置,对后面的元素就失效了,此句必须放在else中
-        }else {
-            var minsh=Math.min.apply(null,sh);
-            //console.log(minsh);
-            //使用Math.min(),()中为数值,不能直接跟数组,需用apply来调用数组中的数值
-            var mshl=gminshsl(sh,minsh);         //min son height location,索引值[0] [1] [2],非数值
-            gs[i].style.position="absolute";
-            gs[i].style.top=minsh+"px";
-            gs[i].style.left=gs[mshl].offsetLeft+"px";
-            //gs[i].style.left=sw*mshl+"px";
-            sh[mshl]=sh[mshl]+gs[i].offsetHeight;
-            //sh[mshl]=sh[mshl]+sh[i];//此处不能直接用sh[]，他是针对i<c情况
-        }
 
-    }
-}
 
-    function gminshsl(sh,minsh){      //get min sh son location
-        for(var i in sh){              //遍历得到最小值
-            if (sh[i]==minsh){
-                return i;
-            }
-        }
-    }
-
-function gnc(parent,son) {                  //get need child此方法用于获取需要的子元素
-    var sonarr = [];
-    var allson = document.getElementsByTagName("*");
-    for (var i = 0; i < allson.length; i++) {
-        if (allson[i].className == son) {
-            sonarr.push(allson[i]); //向数组末尾添加元素
-        }
-    }
-    return sonarr;                   //让gnc()=sonarr[]
-}
 
 
 
@@ -159,6 +167,21 @@ function turnOff(){
     document.getElementById("fade").style.display="none";
 }
 
+
+//手机端img单列显示,让box的宽度=屏幕宽度,思路不对,会让前面的sl函数执行错误
+/*var sw=document.getElementById("box1").offsetWidth;
+var ww=window.innerWidth;
+var c=Math.floor(ww/sw);
+if(c==1){
+    var t=setTimeout(extend,1000);
+    function extend(){
+        var gimg=document.getElementsByTagName("img");
+        console.log(gimg.length);
+        for(i=1;i<gimg.length;i++){
+            gimg[i].style.width=ww+"px";
+        }
+    }
+}*/
 
 
 
