@@ -382,7 +382,7 @@ body{
 #main-gallery .img{
     margin: 0 0 5px 0;  /*没有此margin,下阴影会覆盖下面的图片*/
     padding: 5px;
-    /*box-shadow: 5px 5px 5px #666;*/
+    box-shadow: 5px 5px 5px #666;
 
 
 }
