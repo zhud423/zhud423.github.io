@@ -438,6 +438,10 @@ body{
 .media-box img{
     height: 100%;
     width: 100%;
+    /*position: relative;*/
+    /*top:50%;*/
+    /*left:50%;*/
+    /*transform: translate(-50%,-50%);*/
 }
 
 .library{
@@ -549,54 +553,60 @@ body{
 
 
 /*
- * resume顶栏的样式
+ * resume底栏的样式
  */
-/*#bottom{*/
-    /*background: #009571 url(../images/emerald.png);*/
-    /*color: #fff;*/
-    /*text-shadow: 1px 1px 1px #048465;*/
-/*}*/
-
-/*.semicircle{*/
-    /*background: url(../images/semicircle.png) repeat-x;*/
-    /*padding: 20px 0;*/
-/*}*/
-
-/*#bottom h3{*/
-    /*font-size: 18px;*/
-    /*color: #075442;*/
-    /*text-shadow: 1px 1px 1px #03a67f;*/
-    /*background: url(../images/dashed-h.png) repeat-x 0 50%;*/
-/*}*/
-
-/*#bottom h3 span{*/
-    /*background: url(../images/emerald.png);*/
-    /*padding-right: 10px;*/
-/*}*/
-
-/*.dashed-v{*/
-    /*background: url(../images/dashed-v.png) repeat-y 100% 0;*/
-    /*padding: 0 20px 20px 0;*/
-/*}*/
-
-#home{
-    font-size: 24px;
-}
-
-#github{
-    font-size: 24px;
-}
-
-#wechat{
-    text-align: center;
-}
-
 #resumeArticle{
     /*width: 100%;*/
+    margin-top: -20px;
 }
 
 #resumeArticle img{
     width: 100%;
     height: auto;
 }
+#bottom{
+    color: #fff;
+}
+
+.semicircle{
+    background: url(../images/semicircle.png) repeat-x;
+    padding: 20px 0;
+}
+
+#resumeBottom h3{
+    font-size: 18px;
+    color: #666;
+    /*text-shadow: 1px 1px 1px #0f0f0f;*/
+    background: url(../images/dashed-h.png) repeat-x 0 50%;
+}
+
+#resumeBottom p a{
+    text-decoration: none;
+    color: #000;
+}
+
+#resumeBottom h3 span{
+    background: #f0f0f0;
+    padding-right: 10px;
+}
+
+.dashed-v{
+    background: url(../images/dashed-v.png) repeat-y 100% 0;
+    padding-right: 20px;
+    height: 150px;
+}
+
+#home{
+    font-size: 23px;
+    color: #0f0f0f;
+}
+
+#github{
+    font-size: 23px;
+}
+
+#wechat{
+    text-align: center;
+}
+
 
