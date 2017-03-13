@@ -582,6 +582,11 @@ body{
 
 #resumeBottom p a{
     text-decoration: none;
+    color: #666;
+}
+
+#resumeBottom p a:hover{
+    text-decoration: none;
     color: #000;
 }
 
