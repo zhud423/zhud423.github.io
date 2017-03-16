@@ -226,7 +226,9 @@ body{
     position:absolute;
     left: 50%;
     top:50%;
-    transform: translate(-50%, -50%);
+    margin-left: -384px;
+    margin-top: -160px;
+    /*transform: translate(-50%, -50%);*/
 }
 
 .worthRecommending .line2 {
@@ -236,14 +238,16 @@ body{
     margin: 0 -15px;
     position: relative;
     overflow: hidden;
-    height: 318px;
+    height: 320px;
 }
 
 .worthRecommending .line2 .adaptive{
     position:absolute;
     left: 50%;
     top:50%;
-    transform: translate(-50%, -50%);
+    margin-left: -384px;
+    margin-top: -160px;
+    /*transform: translate(-50%, -50%);*/
 }
 
 .cards .belovedThing{
@@ -265,7 +269,9 @@ body{
     position:absolute;
     right: 50%;
     top:50%;
-    transform: translate(50%, -50%);
+    margin-right: -384px;
+    margin-top: -160px;
+    /*transform: translate(50%, -50%);*/
 }
 
 .belovedThing .line2 {
@@ -274,7 +280,7 @@ body{
     margin: 0 -15px;
     position: relative;
     overflow: hidden;
-    height: 318px;
+    height: 320px;
 }
 
 .belovedThing .line2 .adaptive{
@@ -282,8 +288,10 @@ body{
     right: 50%;
     top:50%;
     margin-right: -384px;
-    margin-top: -159px;
-    /*transform: translate(50%, -50%);*/
+    margin-top: -160px;
+    /*margin-right: -50%;   此法不能实现*/
+    /*margin-top: -50%;*/
+    /*transform: translate(50%, -50%);此法在手机端有bug*/
 
 }
 
