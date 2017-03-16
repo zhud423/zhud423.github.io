@@ -2,8 +2,7 @@
 
 window.onload=function(){
     sl("main-gallery-container","box");
-    lightBox();
-    amplify();
+    judgeLightSize();
 };
 
 function sl(parent,son){                 //son location函数
@@ -153,6 +152,9 @@ function judgeNavbar(){
 function lightBox(){
     var gp=document.getElementById("main-gallery");
     gp.addEventListener("click",turnOn);
+    var gf=document.getElementById("fade");
+    gf.addEventListener("click",turnOff);
+
     function turnOn(){
         var ts=event.target.src;    //此步是关键,用事件委托获取到被点击的目标
         var ns=ts.slice(-6,-4);         //与substring的区别,注意起始位置是相邻两个,其实只包含一个元素
@@ -161,26 +163,8 @@ function lightBox(){
         document.getElementById("imgx").src=cs;
         document.getElementById("light").style.display="block";
         document.getElementById("fade").style.display="block";
-
-        if(window.innerWidth<768){         //不要用window.screen.width,调试时不方便
-            var gbox=gnc("main-gallery-container","box");
-            //console.log(gbox);
-            for(i=0;i<gbox.length;i++){
-                if (gbox[i].offsetHeight<305){
-                    document.getElementById("imgx").style.width=window.innerWidth*0.8+"px";
-                    document.getElementById("imgx").style.height="auto";
-                }else {
-                    document.getElementById("imgx").style.height=window.innerHeight*0.4+"px";
-                    document.getElementById("imgx").style.width="auto";
-                }
-            }
-            //document.getElementById("imgx").style.cssText=
-            //    "width:"+window.innerWidth*0.8+"px;height"+window.innerHeight*0.6+"px";
-        }
     }
 
-    var gf=document.getElementById("fade");
-    gf.addEventListener("click",turnOff);
     function turnOff(){
         document.getElementById("light").style.display="none";
         document.getElementById("fade").style.display="none";
@@ -188,15 +172,31 @@ function lightBox(){
 }
 
 
-function amplify(){
-    var gbox=gnc("main-gallery-container","box");
-    console.log(gbox);
-    for(i=0;i<gbox.length;i++){
-        //gbox[i].style.cssText="transform:scale(2,2)";
-        //gbox[i].style.cssText="zoom:150%";
+//解决手机lightbox显示问题
 
+function judgeLightSize(){
+    var gbox=gnc("main-gallery-container","box");
+    console.log(gbox[2].offsetHeight);
+    console.log(window.innerHeight);
+    console.log(document.body.clientHeight);
+    console.log(screen.height);
+    if(window.innerWidth<768){         //此判断不能写在turnon函数里,它鼠标点击才触发,逻辑不对
+        for(i=0;i<gbox.length;i++){
+            if (gbox[i].offsetHeight<305){
+                document.getElementById("imgx").style.width=window.innerWidth*0.8+"px";
+                document.getElementById("imgx").style.height="auto";
+                //document.getElementById("imgx").style.cssText="width:"+window.innerWidth*0.8+"px;height"+window.innerHeight*0.6+"px";
+            }else {
+                document.getElementById("imgx").style.height=window.innerHeight*0.8+"px";
+                document.getElementById("imgx").style.width="auto";
+            }
+        }
+        lightBox();
+    }else {
+        lightBox();
     }
 }
+
 
 
 //手机端img单列显示,让box的宽度=屏幕宽度,思路不对,会让前面的sl函数执行错误
@@ -214,6 +214,15 @@ if(c==1){
     }
 }*/
 
+//放大也不可取,会改变box的宽高,使定位函数不能正确定位
+function amplify(){
+    var gbox=gnc("main-gallery-container","box");
+    console.log(gbox);
+    for(i=0;i<gbox.length;i++){
+        //gbox[i].style.cssText="transform:scale(2,2)";
+        //gbox[i].style.cssText="zoom:150%";
 
+    }
+}
 
 
