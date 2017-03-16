@@ -76,11 +76,12 @@ body{
 }
 
 .banner {
-    height: 600px;
     position: relative;
     overflow: hidden;
     /*border:2px solid #f0a;*/
     margin-top: -22px;
+    height: 600px;   /*此处的高度必须设置,否则banner就变成一条线,无法陈列图片*/
+
 }
 
 .banner .adaptive {
@@ -138,7 +139,7 @@ body{
 
 .arrow {
     position: absolute;
-    top: 250px;
+    top: 42%;
     z-index: 2;
     display: none;
     width: 100px;
@@ -169,6 +170,8 @@ body{
     position:absolute;
     right: 0;
 }
+
+
 
 /*
  * cards style
@@ -291,7 +294,7 @@ body{
     margin-top: -160px;
     /*margin-right: -50%;   此法不能实现*/
     /*margin-top: -50%;*/
-    /*transform: translate(50%, -50%);此法在手机端有bug*/
+    /*transform: translate(50%, -50%);此法在手机端有bug,不能实现居中,而pc端没问题*/
 
 }
 

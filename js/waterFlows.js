@@ -215,6 +215,7 @@ if(c==1){
 }*/
 
 //放大也不可取,会改变box的宽高,使定位函数不能正确定位
+/*
 function amplify(){
     var gbox=gnc("main-gallery-container","box");
     console.log(gbox);
@@ -224,5 +225,6 @@ function amplify(){
 
     }
 }
+*/
 
 
