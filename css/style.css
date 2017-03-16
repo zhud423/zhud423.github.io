@@ -341,6 +341,22 @@ body{
     padding: 0 2px;
 }
 
+
+#main-gallery img{
+    /*border: 1px solid #f0ad4e;*/
+    width: 305px;
+    height: auto;
+}
+
+#main-gallery .img{
+    margin: 0 0 5px 0;  /*没有此margin,下阴影会覆盖下面的图片*/
+    padding: 5px;        /*画框*/
+    box-shadow: 5px 5px 5px #666;
+
+
+}
+
+
 #main-gallery .overlay{
     display: none;
     position: absolute;
@@ -379,19 +395,6 @@ body{
 
 }
 
-#main-gallery .img{
-    margin: 0 0 5px 0;  /*没有此margin,下阴影会覆盖下面的图片*/
-    padding: 5px;
-    box-shadow: 5px 5px 5px #666;
-
-
-}
-
-#main-gallery img{
-    /*border: 1px solid #f0ad4e;*/
-    width: 305px;
-    height: auto;
-}
 
 /*
  * 值得推荐/心爱之物库主内容的样式
