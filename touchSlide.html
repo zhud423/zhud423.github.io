@@ -57,6 +57,7 @@
         .f-anim{
             -webkit-transition:left .2s linear;
         }
+
         /**{margin:0;padding:0;}*/
         /*li{list-style:none;}*/
         /*.m-slider{width:600px;margin:50px 20px;overflow:hidden;}*/
@@ -104,7 +105,22 @@
         <!--<span>5</span>-->
     <!--</div>-->
 <!--</div>-->
+<script src="js/jquery-3.1.1.min.js"></script>
 <script>
+
+    //手动轮播
+    $(".num li").mouseover(function(){
+        var index=$(this).index();     //上一行的this和这一行的this是同一个,都是被鼠标移入的li
+//        i=index;
+        $(".img li").eq(index).stop().show().siblings().stop().hide();
+        //$(".img li").eq(index).stop().fadeIn(500).siblings().stop().fadeOut(500);
+        $(this).addClass("active").siblings().removeClass("active");
+    });
+
+
+
+
+    //触屏滑动
     var slider= {
 //判断设备是否支持touch事件
         touch:('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch,
@@ -142,7 +158,7 @@
                 isScrolling = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1:0; //isScrolling为1时，表示纵向滑动，0为横向滑动
                 if(isScrolling === 0){
                     event.preventDefault(); //阻止触摸事件的默认行为，即阻止滚屏
-                    this.slider.className = 'cnt';
+                    this.slider.className = 'num';
                     this.slider.style.left = -this.index*1280 + endPos.x + 'px';
                 }
             },
@@ -159,8 +175,8 @@
                             if(this.index !== this.num.length-1) this.index += 1;
                         }
                     }
-                    this.num[this.index].className = 'curr';
-                    this.slider.className = 'cnt f-anim';
+                    this.num[this.index].className = 'active';
+                    this.slider.className = 'num f-anim';
                     this.slider.style.left = -this.index*1280 + 'px';
                 }
 //解绑事件
@@ -175,6 +191,71 @@
         }
     };
     slider.init();
+
+
+
+/*    //判断能否touch&初始化
+    window.onload=function(){
+        initial();
+    };
+
+    function judgeTouch(){
+        if(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch){
+            return true;
+        }
+    }
+    function initial(){
+        if(!!judgeTouch()) {          //!!强制转为bool型
+            console.log("ok");
+            document.getElementById("slider").addEventListener('touchstart',start);
+            document.getElementById("slider").addEventListener('touchmove',move);
+            document.getElementById("slider").addEventListener('touchend',end);
+
+        }
+    }
+
+
+    function start(event){
+        var touch = event.targetTouches[0]; //touches数组对象获得屏幕上所有的touch，取第一个touch
+        startPos = {x:touch.pageX,y:touch.pageY,time:+new Date}; //取第一个touch的坐标值
+        isScrolling = 0; //这个参数判断是垂直滚动还是水平滚动
+        document.getElementById("slider").addEventListener('touchmove',move);
+        document.getElementById("slider").addEventListener('touchend',end);
+    }
+
+    function move(event){
+//当屏幕有多个touch或者页面被缩放过，就不执行move操作
+        if(event.targetTouches.length > 1 || event.scale && event.scale !== 1) return;
+        var touch = event.targetTouches[0];
+        endPos = {x:touch.pageX - startPos.x,y:touch.pageY - startPos.y};
+        isScrolling = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1:0; //isScrolling为1时，表示纵向滑动，0为横向滑动
+        if(isScrolling === 0){
+            event.preventDefault(); //阻止触摸事件的默认行为，即阻止滚屏
+            document.getElementById("slider").className = 'num';
+            document.getElementById("slider").style.left = -this.index*1280 + endPos.x + 'px';
+        }
+    }
+
+    function end(){
+        var duration = +new Date - startPos.time; //滑动的持续时间
+        if(isScrolling === 0){ //当为水平滚动时
+            this.num[this.index].className = '';
+            if(Number(duration) > 10){
+//判断是左移还是右移，当偏移量大于10时执行
+                if(endPos.x > 10){
+                    if(this.index !== 0) this.index -= 1;
+                }else if(endPos.x < -10){
+                    if(this.index !== this.num.length-1) this.index += 1;
+                }
+            }
+            this.num[this.index].className = 'active';
+            document.getElementById("slider").className = 'num f-anim';
+            document.getElementById("slider").style.left = -this.index*1280 + 'px';
+        }
+//解绑事件
+        document.getElementById("slider").removeEventListener('touchmove',move);
+        document.getElementById("slider").removeEventListener('touchend',end);
+    }*/
 </script>
 </body>
 </html>
