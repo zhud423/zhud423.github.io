@@ -181,7 +181,7 @@ function judgeLightSize(){
     console.log(document.body.clientHeight);
     console.log(screen.height);
     if(window.innerWidth<768){         //此判断不能写在turnon函数里,它鼠标点击才触发,逻辑不对
-        document.getElementById("light").style.cssText="transform:translate(-188px,-339px)";
+        //document.getElementById("light").style.cssText="transform:translate(-375px,-678px)";
         for(i=0;i<gbox.length;i++){
             if (gbox[i].offsetHeight<305){
                 document.getElementById("imgx").style.width=window.innerWidth*0.8+"px";
