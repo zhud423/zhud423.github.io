@@ -124,5 +124,19 @@
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/sof.js"></script>
+    <script>
+        //touchSlide
+        $(".img li").on("touchmove",function() {
+            alert("ok");
+            var index = $(this).index();
+            $(this).eq(index).stop().show().siblings().stop().hide();
+            $(".num li").addClass("active").siblings().removeClass("active");
+        });
+        $(".img").on("touchend",function() {
+            var index = $(this).index();
+            $(this).eq(index).stop().show().siblings().stop().hide();
+        });
+
+    </script>
   </body>
 </html>
