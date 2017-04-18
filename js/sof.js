@@ -16,7 +16,7 @@ window.onload=function(){
   //自动轮播
   var i=0;
   function autoBanner(){
-    window.t=setInterval(move,2000);
+    window.t=setInterval(move,3000);
   }
   //核心函数(后面图片依次向前移动)
   function move(){
@@ -110,6 +110,7 @@ window.onscroll=function(){
     //alert("ok");
     var gn=document.getElementById("navbar");
     //变量在if定义,在else不能直接用,也要定义
+
     //3种不同修改style的写法
      gn.style.cssText="position:fixed; top:0; width:100%; z-index:3;";
 

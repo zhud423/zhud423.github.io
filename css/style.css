@@ -81,10 +81,11 @@ body{
     /*border:2px solid #f0a;*/
     margin-top: -22px;
     height: 600px;   /*此处的高度必须设置,否则banner就变成一条线,无法陈列图片*/
-
+    width: 100%;
 }
 
 .banner .adaptive {
+    /*border:2px solid #00a;*/
     position: absolute;
     left: 50%;
     top:50%;
