@@ -1,6 +1,7 @@
 window.onload=function(){
   autoBanner();
-  var timerJW=setInterval(judgeWidth,200)
+  var timerJW=setInterval(judgeWidth,200);
+  judgeTouch();
 };
 
 //手动轮播
@@ -16,7 +17,7 @@ window.onload=function(){
   //自动轮播
   var i=0;
   function autoBanner(){
-    window.t=setInterval(move,3000);
+     t=setInterval(move,2500)
   }
   //核心函数(后面图片依次向前移动)
   function move(){
@@ -24,7 +25,6 @@ window.onload=function(){
     if(i==4){
       i=0;
     }
-    //alert(i);
     $(".num li").eq(i).addClass("active").siblings().removeClass("active");
     $(".img li").eq(i).stop().show().siblings().stop().hide();
     //$(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
@@ -101,13 +101,26 @@ function changeBanner(){
 
 
 //banner触屏滑动效果
+$(".img li").on("touchmove",function(){       //touchmove  手指不放发生
+  var i=$(this).index();
+  if (i==3){
+    i=-1;//就这一小句就搞定
+  }
+  console.log(i);
+  $(".img li").eq(i+1).show().siblings().hide();   //此处不要用this选择器,用了会始终覆盖if里面对this的修改
+  $(".num li").eq(i+1).addClass("active").siblings().removeClass("active");
+});
 
-
+function judgeTouch(){
+  var touch='ontouchstart' in window|| window.DocumentTouch && document instanceof DocumentTouch;
+  if(!!touch){
+    clearInterval(t);
+  }
+}
 
 ///监听滚动,固定导航栏在顶部
 window.onscroll=function(){
   if (judge()){
-    //alert("ok");
     var gn=document.getElementById("navbar");
     //变量在if定义,在else不能直接用,也要定义
 
