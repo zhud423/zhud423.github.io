@@ -484,8 +484,20 @@ body{
 }
 
 
-
-
+/*
+ * 生活随感库样式
+ */
+.main-catalog h1 a{
+    text-decoration: none;
+    color: #333;
+}
+.main-catalog hr{
+    height: 5px;
+    background-color: #cccccc;
+}
+.main-catalog iframe{
+    width: 100%;
+}
 /*
  * 文章内容的样式
  */
@@ -496,7 +508,6 @@ body{
 #content{
   margin: 20px 0;
     /*border:2px solid #f0ad4e;*/
-    overflow: scroll;
 }
 
 #content img{
